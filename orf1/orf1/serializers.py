@@ -1,4 +1,4 @@
-from .models import Circuit, Constructor, Driver, Driverinseason, Grandprix, Raceresult, Season
+from .models import Circuit, Constructor, Driver, Driverinseason, Grandprix, Raceresult
 
 from rest_framework import serializers
 
@@ -39,9 +39,19 @@ class GrandprixSerializer(serializers.ModelSerializer):
       fields = '__all__'
       
 class RaceresultSerializer(serializers.ModelSerializer):
+    # raceresult doesnt have a primary key, so we need to specify it
+    # drivername = serializers.SerializerMethodField()
+
+
+    # def get_drivername(self, result):
+    #     # return ', '.join([str(genre) for genre in album.genres.all()])
+    #     # driver = Driverinseason.objects.filter(driverid=result.driverid, year=result.year, constructorid=result.constructorid).first()
+    #     # driverProper = Driver.objects.filter(id=driver.driverid_id)[0]
+    
+    #     return "janko jankic"
     
     class Meta:
       model = Raceresult
-      fields = '__all__'
+      fields = ('id', 'fastestlaptime', 'grid', 'position', 'laps', 'time', 'fastestlap', 'points', 'status', 'driverid', 'year', 'constructorid', 'gpid')
     
   

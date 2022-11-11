@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>F1 Race Results</title>
+  <meta name="description" content="F1 Race results">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <table id="results" class="table table-striped table-bordered" style="width:100%" data-server-side="true"
+          data-ajax="/api/results/?format=datatables">
+          <thead>
+            <tr>
+              <th data-data="id">id</th>
+              <th data-data="fastestlaptime">fastestlaptime</th>
+              <th data-data="grid">grid</th>
+              <th data-data="position">position</th>
+              <th data-data="laps">laps</th>
+              <th data-data="time">time</th>
+              <th data-data="fastestlap">fastestlap</th>
+              <th data-data="points">points</th>
+              <th data-data="status">status</th>
+              <th data-data="driverid">driverid</th>
+              <th data-data="year">year</th>
+              <th data-data="constructorid">constructorid</th>
+              <th data-data="gpid">gpid</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var table = $('#results').DataTable({
+        "serverSide": true,
+        "ajax": "/api/results/?format=datatables",
+        "columns": [{
+            "data": "id"
+          },
+          {
+            "data": "fastestlaptime"
+          },
+          {
+            "data": "grid"
+          },
+          {
+            "data": "position"
+          },
+          {
+            "data": "laps"
+          },
+          {
+            "data": "time"
+          },
+          {
+            "data": "fastestlap"
+          },
+          {
+            "data": "points"
+          },
+          {
+            "data": "status"
+          },
+          {
+            "data": "driverid"
+          },
+          {
+            "data": "year"
+          },
+          {
+            "data": "constructorid"
+          },
+          {
+            "data": "gpid"
+          }
+        ]
+      });
+    });
+  </script>
+</body>
+
+</html>

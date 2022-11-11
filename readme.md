@@ -117,3 +117,5 @@ $ pip install -r requirements.txt
 $ python manage.py migrate
 $ python manage.py runserver
 ```
+
+[Kako migrirati postojecu bazu u Djanog projekt](https://djangoadventures.com/how-to-integrate-django-with-existing-database/)

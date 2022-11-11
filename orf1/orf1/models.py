@@ -1,5 +1,6 @@
 
 from django.db import models
+import uuid
 
 
 class Circuit(models.Model):
@@ -65,6 +66,7 @@ class Grandprix(models.Model):
 
 
 class Raceresult(models.Model):
+    id = models.IntegerField(primary_key=True)
     fastestlaptime = models.FloatField(blank=True, null=True)
     grid = models.IntegerField(blank=True, null=True)
     position = models.IntegerField(blank=True, null=True)
@@ -81,6 +83,7 @@ class Raceresult(models.Model):
     class Meta:
         managed = False
         db_table = 'raceresult'
+        unique_together = (('driverid', 'gpid'),)
 
 
 class Season(models.Model):
