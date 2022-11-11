@@ -5,8 +5,7 @@ Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/)
 
 **Autor:** Matej Butković
 
-**Version:** 1.0
-
+**Version:** 2.0
 
 # Dataset
 Jezik podataka: english
@@ -105,8 +104,16 @@ Primjer:
 | 1:30.000 | 1 | 1 | 58 | 1:30.000 | 1 | 25 | Finished | 1 | 2022 | 1 | 1 |
 
 
-
-
-
 ## More info
 Dataset kojim sam punio ovu bazu podataka nalazi se na https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020
+
+# Lab2 -- Adding Djagno
+
+## Instalacija
+Instalirati python 3.9.6
+```
+$ cd orf1
+$ pip install -r requirements.txt
+$ python manage.py migrate
+$ python manage.py runserver
+```
