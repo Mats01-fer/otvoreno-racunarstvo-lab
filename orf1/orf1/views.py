@@ -11,6 +11,8 @@ from .serializers import CircuitSerializer, ConstructorSerializer, DriverSeriali
 def circuit(request):
     return render(request, 'circuit.html')
 
+def index(request):
+    return render(request, 'index.html')
 
 def result(request):
     return render(request, 'datatable.html')

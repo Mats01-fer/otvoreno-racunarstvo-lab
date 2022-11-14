@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otvoreno Racunarstvo - F1 podaci</title>
+  <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/normalize.css">
+  <link rel="stylesheet" href="http://127.0.0.1:8000/static/css/skeleton.css">
+  <meta name="description" content="Otvoreno racunartsvo labos ">
+  <meta name="author" content="Matej Butković">
+</head>
+
+<body>
+  <div style="width: 100vw; height: 100vh; display: flex; 
+align-items: center; justify-content: center; flex-direction: column">
+
+    <h1>Formula1 -- otvoreni podaci</h1>
+    <p>made with 💻 by Matej @ FER</p>
+    <a href="https://github.com/Mats01-fer/otvoreno-racunarstvo-lab" target="_blank">github repo</a>
+    <br />
+    <br />
+    <br />
+
+    <a href="http://127.0.0.1:8000/static/f1_dataset.csv" download="f1_dataset.csv">f1_dataset.csv</a>
+    <a href="http://127.0.0.1:8000/static/f1_dataset.json" download="f1_dataset.json">f1_dataset.json</a>
+    <br />
+    <br />
+    <br />
+    <a href="http://127.0.0.1:8000/results"><button>Idi na tablicu</button></a>
+    <a href="api"><button>Idi na API</button></a>
+
+
+
+    <div style="max-width: 800px; margin-top: 100px;">
+      <h2>readme.md</h2>
+
+      <p>Licence:
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0)
+          Public Domain Dedication</a></p>
+      <p><strong>Autor:</strong> Matej Butković</p>
+      <p><strong>Version:</strong> 2.0</p>
+      <h1 id="dataset">Dataset</h1>
+      <p>Jezik podataka: english</p>
+      <h2 id="tablice-i-atributi">Tablice i atributi</h2>
+      <p><img src="orf1%20-%20public.png" alt="databse schema"></p>
+      <h3 id="driver">Driver</h3>
+      <ul>
+        <li>id</li>
+        <li>name</li>
+        <li>surname</li>
+        <li>code</li>
+        <li>dob</li>
+        <li>nationality</li>
+      </ul>
+
+      <h3 id="season">Season</h3>
+      <ul>
+        <li>year</li>
+      </ul>
+
+      <h3 id="constructor">Constructor</h3>
+      <ul>
+        <li>id</li>
+        <li>name</li>
+        <li>nationality</li>
+      </ul>
+
+      <h3 id="circuit">Circuit</h3>
+      <ul>
+        <li>id</li>
+        <li>name</li>
+        <li>location</li>
+        <li>country</li>
+        <li>alt </li>
+        <li>lon</li>
+        <li>lat </li>
+      </ul>
+      <h3 id="grandprix">Grandprix</h3>
+      <ul>
+        <li>id</li>
+        <li>name</li>
+        <li>year</li>
+        <li>round</li>
+        <li>circuitid</li>
+        <li>date</li>
+      </ul>
+
+      <ul>
+        <li>driverid</li>
+        <li>year</li>
+        <li>constructorid</li>
+        <li>number</li>
+      </ul>
+
+      <h3 id="raceresult">Raceresult</h3>
+      <ul>
+        <li>fastestLapTime </li>
+        <li>grid </li>
+        <li>position </li>
+        <li>laps </li>
+        <li>time </li>
+        <li>fastestLap </li>
+        <li>points </li>
+        <li>status </li>
+        <li>driverID INT </li>
+        <li>Year </li>
+        <li>constructorID INT </li>
+        <li>GPID INT </li>
+      </ul>
+
+      <h2 id="more-info">More info</h2>
+      <p>Dataset kojim sam punio ovu bazu podataka nalazi se na <a
+          href="https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020">https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020</a>
+      </p>
+      <h1 id="lab2-djagno">Lab2 -- Djagno</h1>
+      <p>Za prikazivanje podataka koristio sam <a
+          href="https://django-rest-framework-datatables.readthedocs.io/en/latest/index.html">django-rest-framework-datatables</a>
+      </p>
+      <h2 id="instalacija">Instalacija</h2>
+      <p>Instalirati python 3.9.6</p>
+      <pre><code>$ cd orf1
+$ pip install -r requirements<span class="hljs-selector-class">.txt</span>
+$ python manage<span class="hljs-selector-class">.py</span> migrate
+$ python manage<span class="hljs-selector-class">.py</span> runserver
+</code></pre>
+      <p><a href="https://djangoadventures.com/how-to-integrate-django-with-existing-database/">Kako migrirati postojecu
+          bazu u Djanog projekt</a></p>
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

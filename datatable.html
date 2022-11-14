@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>F1 Race Results</title>
+  <meta name="description" content="F1 Race results">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <table id="results" class="table table-striped table-bordered" style="width:100%" data-server-side="true"
+          data-ajax="localhost:8000/api/results/?format=datatables">
+          <thead>
+            <tr>
+              <th data-data="id">id</th>
+              <th data-data="driver">Driver name</th>
+              <th data-data="driver_number">Number</th>
+              <th data-data="constructor">Constructor</th>
+              <th data-data="circuit">Circuit</th>
+              <th data-data="grand_prix">Grand Prix</th>
+              <th data-data="fastestlaptime">fastestlaptime</th>
+              <th data-data="grid">grid</th>
+              <th data-data="position">position</th>
+              <th data-data="laps">laps</th>
+              <th data-data="time">time</th>
+              <th data-data="fastestlap">fastestlap</th>
+              <th data-data="points">points</th>
+              <th data-data="status">status</th>
+              <th data-data="driverid">driverid</th>
+              <th data-data="year">year</th>
+              <th data-data="constructorid">constructorid</th>
+              <th data-data="gpid">gpid</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var table = $('#results').DataTable({
+        "serverSide": true,
+        "ajax": "localhost:8000/api/results/?format=datatables",
+        "columns": [{
+            "data": "id",
+            "searchable": false
+          },
+          {
+            "data": "driver",
+            "searchable": false
+          },
+          {
+            "data": "driver_number",
+            "searchable": false
+          },
+          {
+            "data": "constructor",
+            "searchable": false
+
+          },
+          {
+            "data": "circuit",
+            "searchable": false
+          },
+          {
+            "data": "grand_prix",
+            "searchable": false
+          },
+          {
+            "data": "fastestlaptime",
+            "searchable": false
+          },
+          {
+            "data": "grid",
+            "searchable": false
+          },
+          {
+            "data": "position",
+            "searchable": false
+          },
+          {
+            "data": "laps",
+            "searchable": false
+          },
+          {
+            "data": "time",
+            "searchable": false
+          },
+          {
+            "data": "fastestlap",
+            "searchable": false
+          },
+          {
+            "data": "points",
+            "searchable": false
+          },
+          {
+            "data": "status",
+            "searchable": false
+          },
+          {
+            "data": "driverid",
+            "searchable": false
+          },
+          {
+            "data": "year",
+            "searchable": true
+          },
+          {
+            "data": "constructorid",
+            "searchable": false
+          },
+          {
+            "data": "gpid",
+            "searchable": false
+          }
+        ]
+      });
+    });
+  </script>
+</body>
+
+</html>

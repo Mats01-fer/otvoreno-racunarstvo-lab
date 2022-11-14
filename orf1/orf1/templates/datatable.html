@@ -7,6 +7,7 @@
   <meta name="description" content="F1 Race results">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+
 </head>
 
 <body>
@@ -20,6 +21,9 @@
               <th data-data="id">id</th>
               <th data-data="driver">Driver name</th>
               <th data-data="driver_number">Number</th>
+              <th data-data="constructor">Constructor</th>
+              <th data-data="circuit">Circuit</th>
+              <th data-data="grand_prix">Grand Prix</th>
               <th data-data="fastestlaptime">fastestlaptime</th>
               <th data-data="grid">grid</th>
               <th data-data="position">position</th>
@@ -56,6 +60,19 @@
           },
           {
             "data": "driver_number",
+            "searchable": false
+          },
+          {
+            "data": "constructor",
+            "searchable": false
+
+          },
+          {
+            "data": "circuit",
+            "searchable": false
+          },
+          {
+            "data": "grand_prix",
             "searchable": false
           },
           {

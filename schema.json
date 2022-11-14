@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "default": {},
+  "title": "Root Schema",
+  "required": [
+    "count",
+    "next",
+    "previous",
+    "results"
+  ],
+  "properties": {
+    "count": {
+      "type": "integer",
+      "default": 0,
+      "title": "The count Schema",
+      "examples": [
+        21540
+      ]
+    },
+    "next": {
+      "type": "string",
+      "default": "",
+      "title": "The next Schema",
+      "examples": [
+        "http://127.0.0.1:8000/api/results/?format=json&page=2"
+      ]
+    },
+    "previous": {
+      "type": "null",
+      "default": null,
+      "title": "The previous Schema",
+      "examples": [
+        null
+      ]
+    },
+    "results": {
+      "type": "array",
+      "default": [],
+      "title": "The results Schema",
+      "items": {
+        "type": "object",
+        "default": {},
+        "title": "A Schema",
+        "required": [
+          "id",
+          "driver",
+          "driver_number",
+          "constructor",
+          "circuit",
+          "grand_prix",
+          "fastestlaptime",
+          "grid",
+          "position",
+          "laps",
+          "time",
+          "fastestlap",
+          "points",
+          "status",
+          "driverid",
+          "year",
+          "constructorid",
+          "gpid"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "default": 0,
+            "title": "The id Schema",
+            "examples": [
+              1
+            ]
+          },
+          "driver": {
+            "type": "string",
+            "default": "",
+            "title": "The driver Schema",
+            "examples": [
+              "Lewis Hamilton"
+            ]
+          },
+          "driver_number": {
+            "type": "integer",
+            "default": 0,
+            "title": "The driver_number Schema",
+            "examples": [
+              22
+            ]
+          },
+          "constructor": {
+            "type": "string",
+            "default": "",
+            "title": "The constructor Schema",
+            "examples": [
+              "McLaren"
+            ]
+          },
+          "circuit": {
+            "type": "string",
+            "default": "",
+            "title": "The circuit Schema",
+            "examples": [
+              "Albert Park Grand Prix Circuit"
+            ]
+          },
+          "grand_prix": {
+            "type": "string",
+            "default": "",
+            "title": "The grand_prix Schema",
+            "examples": [
+              "Australian Grand Prix"
+            ]
+          },
+          "fastestlaptime": {
+            "type": "number",
+            "default": 0.0,
+            "title": "The fastestlaptime Schema",
+            "examples": [
+              87452.0
+            ]
+          },
+          "grid": {
+            "type": "integer",
+            "default": 0,
+            "title": "The grid Schema",
+            "examples": [
+              1
+            ]
+          },
+          "position": {
+            "type": "integer",
+            "default": 0,
+            "title": "The position Schema",
+            "examples": [
+              1
+            ]
+          },
+          "laps": {
+            "type": "integer",
+            "default": 0,
+            "title": "The laps Schema",
+            "examples": [
+              58
+            ]
+          },
+          "time": {
+            "type": "number",
+            "default": 0.0,
+            "title": "The time Schema",
+            "examples": [
+              5690616.0
+            ]
+          },
+          "fastestlap": {
+            "type": "integer",
+            "default": 0,
+            "title": "The fastestlap Schema",
+            "examples": [
+              39
+            ]
+          },
+          "points": {
+            "type": "integer",
+            "default": 0,
+            "title": "The points Schema",
+            "examples": [
+              10
+            ]
+          },
+          "status": {
+            "type": "string",
+            "default": "",
+            "title": "The status Schema",
+            "examples": [
+              "1.0"
+            ]
+          },
+          "driverid": {
+            "type": "integer",
+            "default": 0,
+            "title": "The driverid Schema",
+            "examples": [
+              1
+            ]
+          },
+          "year": {
+            "type": "integer",
+            "default": 0,
+            "title": "The year Schema",
+            "examples": [
+              2008
+            ]
+          },
+          "constructorid": {
+            "type": "integer",
+            "default": 0,
+            "title": "The constructorid Schema",
+            "examples": [
+              1
+            ]
+          },
+          "gpid": {
+            "type": "integer",
+            "default": 0,
+            "title": "The gpid Schema",
+            "examples": [
+              18
+            ]
+          }
+        },
+        "examples": [
+          {
+            "id": 1,
+            "driver": "Lewis Hamilton",
+            "driver_number": 22,
+            "constructor": "McLaren",
+            "circuit": "Albert Park Grand Prix Circuit",
+            "grand_prix": "Australian Grand Prix",
+            "fastestlaptime": 87452.0,
+            "grid": 1,
+            "position": 1,
+            "laps": 58,
+            "time": 5690616.0,
+            "fastestlap": 39,
+            "points": 10,
+            "status": "1.0",
+            "driverid": 1,
+            "year": 2008,
+            "constructorid": 1,
+            "gpid": 18
+          }
+        ]
+      },
+      "examples": [
+        [
+          {
+            "id": 1,
+            "driver": "Lewis Hamilton",
+            "driver_number": 22,
+            "constructor": "McLaren",
+            "circuit": "Albert Park Grand Prix Circuit",
+            "grand_prix": "Australian Grand Prix",
+            "fastestlaptime": 87452.0,
+            "grid": 1,
+            "position": 1,
+            "laps": 58,
+            "time": 5690616.0,
+            "fastestlap": 39,
+            "points": 10,
+            "status": "1.0",
+            "driverid": 1,
+            "year": 2008,
+            "constructorid": 1,
+            "gpid": 18
+          }
+        ]
+      ]
+    }
+  },
+  "examples": [
+    {
+      "count": 21540,
+      "next": "http://127.0.0.1:8000/api/results/?format=json\u0026page=2",
+      "previous": null,
+      "results": [
+        {
+          "id": 1,
+          "driver": "Lewis Hamilton",
+          "driver_number": 22,
+          "constructor": "McLaren",
+          "circuit": "Albert Park Grand Prix Circuit",
+          "grand_prix": "Australian Grand Prix",
+          "fastestlaptime": 87452.0,
+          "grid": 1,
+          "position": 1,
+          "laps": 58,
+          "time": 5690616.0,
+          "fastestlap": 39,
+          "points": 10,
+          "status": "1.0",
+          "driverid": 1,
+          "year": 2008,
+          "constructorid": 1,
+          "gpid": 18
+        }
+      ]
+    }
+  ]
+}

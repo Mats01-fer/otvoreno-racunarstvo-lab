@@ -52,6 +52,22 @@ class RaceresultSerializer(serializers.ModelSerializer):
     
     driver = serializers.SerializerMethodField()
     driver_number = serializers.SerializerMethodField()
+    constructor = serializers.SerializerMethodField()
+    circuit = serializers.SerializerMethodField()
+    grand_prix = serializers.SerializerMethodField()
+    
+    def get_constructor(self, result):
+        constructor = Constructor.objects.filter(id=result.constructorid).first()
+        return constructor.name
+    
+    def get_circuit(self, result):
+        gp = Grandprix.objects.filter(id=result.gpid_id).first()
+        circuit = Circuit.objects.filter(id=gp.circuitid_id).first()
+        return circuit.name
+    
+    def get_grand_prix(self, result):
+        gp = Grandprix.objects.filter(id=result.gpid_id).first()
+        return gp.name
     
     def get_driver(self, result):
 
@@ -63,6 +79,6 @@ class RaceresultSerializer(serializers.ModelSerializer):
     
     class Meta:
       model = Raceresult
-      fields = ('id', 'driver', 'driver_number', 'fastestlaptime', 'grid', 'position', 'laps', 'time', 'fastestlap', 'points', 'status', 'driverid', 'year', 'constructorid', 'gpid')
+      fields = ('id', 'driver', 'driver_number', 'constructor', 'circuit', 'grand_prix','fastestlaptime', 'grid', 'position', 'laps', 'time', 'fastestlap', 'points', 'status', 'driverid', 'year', 'constructorid', 'gpid')
     
   

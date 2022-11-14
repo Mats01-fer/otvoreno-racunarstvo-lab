@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path, re_path
-from .views import circuit, CircuitViewSet, ResultViewSet, ResultsList, result
+from .views import circuit, CircuitViewSet, ResultViewSet, ResultsList, result, index
 from rest_framework import routers
+from django.conf.urls.static import static
+from .settings import STATIC_URL
+
 
 
 router = routers.DefaultRouter()
@@ -32,6 +35,7 @@ urlpatterns = [
     
     re_path('circuits', circuit, name='circuits'),
     re_path('results', result, name='results'),
+    path('', index, name='index'),
    
 
-]
+] +  static(STATIC_URL)

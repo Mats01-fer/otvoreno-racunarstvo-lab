@@ -107,7 +107,9 @@ Primjer:
 ## More info
 Dataset kojim sam punio ovu bazu podataka nalazi se na https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020
 
-# Lab2 -- Adding Djagno
+# Lab2 -- Djagno
+
+Za prikazivanje podataka koristio sam [django-rest-framework-datatables](https://django-rest-framework-datatables.readthedocs.io/en/latest/index.html)
 
 ## Instalacija
 Instalirati python 3.9.6
