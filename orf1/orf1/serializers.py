@@ -50,8 +50,19 @@ class RaceresultSerializer(serializers.ModelSerializer):
     
     #     return "janko jankic"
     
+    driver = serializers.SerializerMethodField()
+    driver_number = serializers.SerializerMethodField()
+    
+    def get_driver(self, result):
+
+        driver = Driver.objects.filter(id=result.driverid_id).first()
+        return driver.name + " " + driver.surname 
+    def get_driver_number(self, result):
+        driverinseason = Driverinseason.objects.filter(year=result.year, driverid_id=result.driverid_id).first()
+        return driverinseason.number 
+    
     class Meta:
       model = Raceresult
-      fields = ('id', 'fastestlaptime', 'grid', 'position', 'laps', 'time', 'fastestlap', 'points', 'status', 'driverid', 'year', 'constructorid', 'gpid')
+      fields = ('id', 'driver', 'driver_number', 'fastestlaptime', 'grid', 'position', 'laps', 'time', 'fastestlap', 'points', 'status', 'driverid', 'year', 'constructorid', 'gpid')
     
   

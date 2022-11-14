@@ -18,6 +18,8 @@
           <thead>
             <tr>
               <th data-data="id">id</th>
+              <th data-data="driver">Driver name</th>
+              <th data-data="driver_number">Number</th>
               <th data-data="fastestlaptime">fastestlaptime</th>
               <th data-data="grid">grid</th>
               <th data-data="position">position</th>
@@ -45,43 +47,64 @@
         "serverSide": true,
         "ajax": "/api/results/?format=datatables",
         "columns": [{
-            "data": "id"
+            "data": "id",
+            "searchable": false
           },
           {
-            "data": "fastestlaptime"
+            "data": "driver",
+            "searchable": false
           },
           {
-            "data": "grid"
+            "data": "driver_number",
+            "searchable": false
           },
           {
-            "data": "position"
+            "data": "fastestlaptime",
+            "searchable": false
           },
           {
-            "data": "laps"
+            "data": "grid",
+            "searchable": false
           },
           {
-            "data": "time"
+            "data": "position",
+            "searchable": false
           },
           {
-            "data": "fastestlap"
+            "data": "laps",
+            "searchable": false
           },
           {
-            "data": "points"
+            "data": "time",
+            "searchable": false
           },
           {
-            "data": "status"
+            "data": "fastestlap",
+            "searchable": false
           },
           {
-            "data": "driverid"
+            "data": "points",
+            "searchable": false
           },
           {
-            "data": "year"
+            "data": "status",
+            "searchable": false
           },
           {
-            "data": "constructorid"
+            "data": "driverid",
+            "searchable": false
           },
           {
-            "data": "gpid"
+            "data": "year",
+            "searchable": true
+          },
+          {
+            "data": "constructorid",
+            "searchable": false
+          },
+          {
+            "data": "gpid",
+            "searchable": false
           }
         ]
       });

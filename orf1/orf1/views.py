@@ -30,9 +30,11 @@ class ResultsList(generics.ListAPIView):
     queryset = Raceresult.objects.all()
     serializer_class = RaceresultSerializer
     filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
-    def get_queryset(self):
-        queryset = Raceresult.objects.all()
-        year = self.request.query_params.get('year')
-        if year is not None:
-            queryset = queryset.filter(year=year)
-        return queryset
+    search_fields = ['year', 'driver', 'driver_number', ]
+
+    # def get_queryset(self):
+    #     queryset = Raceresult.objects.all()
+    #     year = self.request.query_params.get('year')
+    #     if year is not None:
+    #         queryset = queryset.filter(year=year)
+    #     return queryset
