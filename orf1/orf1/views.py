@@ -66,7 +66,7 @@ class ResultDetailApiView(APIView):
     
     def get(self, request, pk, *args, **kwargs):
         '''
-        Retrieves the Raceresult with given todo_id
+        Retrieves the Raceresult with given id
         '''
         try:
             result = Raceresult.objects.get(id=pk)
@@ -79,7 +79,7 @@ class CircuitDetailApiView(APIView):
     
     def get(self, request, pk, *args, **kwargs):
         '''
-        Retrieves the Circuit with given todo_id
+        Retrieves the Circuit with given id
         '''
         try:
             circuit = Circuit.objects.get(id=pk)
@@ -96,7 +96,7 @@ class ContructorDetailApiView(APIView):
     
     def get(self, request, pk, *args, **kwargs):
         '''
-        Retrieves the Constructor with given todo_id
+        Retrieves the Constructor with given id
         '''
         try:
             constructor = Constructor.objects.get(id=pk)
@@ -112,12 +112,39 @@ class DriverViewSet(viewsets.ModelViewSet):
 class DriverDetailApiView(APIView):
     
     def get(self, request, pk, *args, **kwargs):
+        
+        # if pk is not a number retun does not exist
+        if(pk.isdigit() == False):
+            return Response(status=status.HTTP_404_NOT_FOUND)
         '''
-        Retrieves the Driver with given todo_id
+        Retrieves the Driver with given id
         '''
         try:
             driver = Driver.objects.get(id=pk)
             return Response(DriverSerializer(driver).data)
         except Driver.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    def put(self, request, pk, *args, **kwargs):
+        '''
+        Updates the Driver with given id
+        '''
+        try:
+            driver = Driver.objects.get(id=pk)
+            serializer = DriverSerializer(driver, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Driver.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
         
+    def delete(self, request, pk, *args, **kwargs):
+        driver = Driver.objects.get(id=pk)
+        if driver:
+            driver.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        else:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+            
+            
