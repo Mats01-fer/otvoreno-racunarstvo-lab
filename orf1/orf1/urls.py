@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path, re_path
-from .views import circuit, CircuitViewSet, ResultViewSet, ResultsList,CircuitsList, result, index, ResultDetailApiView
+from .views import *
 from rest_framework import routers
 from django.conf.urls.static import static
 from .settings import STATIC_URL
@@ -44,6 +44,8 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 router.register(r'circuits', CircuitViewSet)
 router.register(r'results', ResultViewSet)
+router.register(r'constructors', ConstructorViewSet)
+router.register(r'drivers', DriverViewSet)
 
 router2 = routers.DefaultRouter('api/v2')
 
@@ -58,6 +60,9 @@ urlpatterns = [
     
     
     re_path('^api/v2/results/(?P<pk>\w+)', ResultDetailApiView.as_view()),
+    re_path('^api/v2/circuits/(?P<pk>\w+)', CircuitDetailApiView.as_view()),
+    re_path('^api/v2/drivers/(?P<pk>\w+)', DriverDetailApiView.as_view()),
+    re_path('^api/v2/constructors/(?P<pk>\w+)', ContructorDetailApiView.as_view()),
 
     re_path('^api/v2/', include(router.urls)),
     
