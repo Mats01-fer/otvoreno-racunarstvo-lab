@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path, re_path
-from .views import circuit, CircuitViewSet, ResultViewSet, ResultsList, result, index
+from .views import circuit, CircuitViewSet, ResultViewSet, ResultsList,CircuitsList, result, index, ResultDetailApiView
 from rest_framework import routers
 from django.conf.urls.static import static
 from .settings import STATIC_URL
+
+
 
 
 
@@ -26,12 +28,16 @@ router = routers.DefaultRouter()
 router.register(r'circuits', CircuitViewSet)
 router.register(r'results', ResultViewSet)
 
+router2 = routers.DefaultRouter('api/v2')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     
-    # re_path('^api/results', ResultsList.as_view()),
-    re_path('^api/', include(router.urls)),
+    
+    re_path('^api/v2/results/(?P<pk>\w+)', ResultDetailApiView.as_view()),
+
+    re_path('^api/v2/', include(router.urls)),
     
     re_path('circuits', circuit, name='circuits'),
     re_path('results', result, name='results'),
