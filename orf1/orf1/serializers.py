@@ -5,10 +5,30 @@ from rest_framework import serializers
 
 class CircuitSerializer(serializers.ModelSerializer):
 
+
+    context = serializers.SerializerMethodField()
+    
+    def get_context(self, circuit):
+        return {
+            "@context": "http://schema.org",
+            "@type": "Circuit",
+            "name": "given name",
+            "location": "https://schema.org/address",
+            "country": "https://schema.org/addressCountry",
+            "lat": "https://schema.org/latitude",
+            "lon": "https://schema.org/longitude",
+            "url": "https://schema.org/url",
+            "alt": "https://schema.org/elevation"
+        }
+
     class Meta:
         model = Circuit
-        # all fields
-        fields = '__all__'
+    
+        ## add JSON-LD context
+
+        fields = ('id', 'name', 'location', 'country', 'lat', 'lon', 'context')
+        
+        
         
     
 class ConstructorSerializer(serializers.ModelSerializer):
@@ -19,11 +39,26 @@ class ConstructorSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DriverSerializer(serializers.ModelSerializer):
+    
+    
+    context = serializers.SerializerMethodField()
+    
+    def get_context(self, circuit):
+        return {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "given name",
+            "surname": "family name",
+            "code": "https://schema.org/identifier",
+            "dob": "https://schema.org/birthDate",
+            "nationality": "https://schema.org/national",
+            "id": "https://schema.org/identifier"
+        }
 
     class Meta:
         model = Driver
         # all fields
-        fields = '__all__'
+        fields = ('name','surname','code','dob','nationality','id', 'context')
         
 class DriverinseasonSerializer(serializers.ModelSerializer):
 

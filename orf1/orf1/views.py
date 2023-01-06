@@ -85,10 +85,25 @@ class CircuitViewSet(viewsets.ModelViewSet):
     queryset = Circuit.objects.all()
     serializer_class = CircuitSerializer
     
+    def list(self, request):
+        queryset = Circuit.objects.all()
+        serializer = CircuitSerializer(queryset, many=True)
+        data = serializer.data
+        new_data = []
+        for c in data:
+            n = c
+            n['@context'] = c['context']
+            del n['context']
+            new_data.append(n)
+            
+
+        return Response(new_data)
+
+    
 class CircuitViewDetail(generics.RetrieveAPIView):
     queryset = Circuit.objects.all()
-    serializer_class = CircuitSerializer
-
+    serializer_class = CircuitSerializer    
+    
 
     
     
@@ -167,6 +182,20 @@ class ContructorDetailApiView(APIView):
 class DriverViewSet(viewsets.ModelViewSet):
     queryset = Driver.objects.all()
     serializer_class = DriverSerializer
+    
+    def list(self, request):
+        queryset = Driver.objects.all()
+        serializer = DriverSerializer(queryset, many=True)
+        data = serializer.data
+        new_data = []
+        for c in data:
+            n = c
+            n['@context'] = c['context']
+            del n['context']
+            new_data.append(n)
+            
+
+        return Response(new_data)
     
 class DriverDetailApiView(APIView):
     
