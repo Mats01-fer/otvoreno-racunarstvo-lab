@@ -68,6 +68,10 @@ urlpatterns = [
     
     re_path('circuits', circuit, name='circuits'),
     re_path('results', result, name='results'),
+    
+    path("auth/login", login, name="login"),
+    path("auth/logout", logout, name="logout"),
+    path("auth/callback", callback, name="callback"),
     path('', index, name='index'),
    
 

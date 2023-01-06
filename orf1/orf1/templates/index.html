@@ -21,6 +21,13 @@ align-items: center; justify-content: center; flex-direction: column">
     <a href="https://github.com/Mats01-fer/otvoreno-racunarstvo-lab" target="_blank">github repo</a>
     <br />
     <br />
+    {% if session %}
+    <h1>Welcome {{session.userinfo.name}}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+    <h1>Welcome Guest</h1>
+    <p><a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
     <br />
 
     <a href="static/f1_dataset.csv" download="f1_dataset.csv">f1_dataset.csv</a>
