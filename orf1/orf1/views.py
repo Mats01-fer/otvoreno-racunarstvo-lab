@@ -38,6 +38,11 @@ def login(request):
     )
 
 def callback(request):
+    ## handle cancel
+    if "error" in request.GET:
+        return redirect(request.build_absolute_uri(reverse("index")))
+        
+        
     token = oauth.auth0.authorize_access_token(request)
     request.session["user"] = token
 
